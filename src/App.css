@@ -1,0 +1,117 @@
+.layout > .beverages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.layout > .beverages > .bev {
+  position: relative;
+}
+
+.layout > .beverages > .bev > .cap {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.1em;
+    color: white;
+    background: #fc0000;
+    padding: 15px;
+    border-radius: 150px;
+    position: relative;
+    text-decoration: none;
+}
+
+.layout > .beverages > .bev > .cap > span {
+  user-select: none;
+}
+
+.grid > .beverages > .bev.unavail .cap:before {
+    position: absolute;
+    content: '';
+    top: -40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14em;
+    color: rgba(125,125,125,.5);
+    z-index: 1;
+}
+
+.beverages > .bev.unavail{
+  filter: grayscale(100%);
+}
+
+.beverages > .bev.active > .cap:before {
+  border-color: #fc0000;
+  content: '';
+    position: absolute;
+    border-radius: 100px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-width: 10px;
+    border-style: solid;
+    animation: anim-border 1s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes anim-border {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.15);
+      opacity: 0;
+    }
+}
+
+
+.pour {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  background: rgba(255,255,255,.8);
+}
+
+.pour > button {
+  background: white;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 65px;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  text-align: center;
+  border: 2px solid #fc0000;
+  transition: transform 1s;
+  outline: none;
+}
+
+.pour > button:active {
+  background: #fc0000;
+  color: white;
+  transform: scale(1.5);
+  transition: transform 5s;
+}
+
+.pour > button::selection {
+  background-color: transparent;
+}
